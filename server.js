@@ -5,7 +5,7 @@ const crypto=require('crypto');
 const app=express(),server=http.createServer(app),io=new Server(server);
 app.use(express.static('public'));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 const rooms=new Map();
 const TRACK=30, ROUND_MS=16000;
