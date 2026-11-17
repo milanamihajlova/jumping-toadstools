@@ -4,6 +4,9 @@ const {Server}=require('socket.io');
 const crypto=require('crypto');
 const app=express(),server=http.createServer(app),io=new Server(server);
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 const rooms=new Map();
 const TRACK=30, ROUND_MS=16000;
 const clean=s=>String(s||'').trim().slice(0,24).replace(/[<>]/g,'');
